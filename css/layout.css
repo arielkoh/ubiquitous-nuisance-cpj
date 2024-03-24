@@ -1,0 +1,575 @@
+/* **********************************************************
+ * default style that take care of the default layout 
+ * and typography.
+ * ********************************************************** */
+
+
+
+/* **********************************************************
+ * let's get started and do a default reset
+ * ********************************************************** */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font: inherit;
+}
+
+html {
+    color-scheme: dark light;
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+svg,
+video {
+    display: block;
+    max-width: 100%;
+}
+
+/* **********************************************************
+ * now let's take care of our main layout and content
+ *
+ * 1. header and main-navigation
+ * 2. weekly 
+ * 3. footer
+ * 4. main layout
+ * 
+ * ********************************************************** */
+
+/* back to top starts */
+.top {
+    --offset: 50px;
+    position: fixed;
+    bottom: 65px;
+    margin-right: 10px;
+    margin-left: 35px;
+    place-self: end;
+    margin-top: calc(150vh + var(--offset));
+
+    /* visual styling */
+    text-decoration: none;
+    padding: 10px;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    color: #fff;
+    background: coral;
+    border-radius: 100px;
+    white-space: nowrap;
+}
+
+.top:hover {
+    background-color: rgb(235, 152, 152);
+    color: #fff;
+}
+
+html,
+body {
+    font-family: 'Inter', sans-serif;
+    scroll-behavior: smooth;
+}
+
+/* back to top ends */
+
+
+/* top menu starts */
+body {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    margin: 0;
+}
+
+.topnav {
+    overflow: hidden;
+    background-color: coral;
+}
+
+.topnav a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.active {
+    background-color: coral;
+    color: white;
+}
+
+.topnav .icon {
+    display: none;
+}
+
+.dropdown {
+    float: left;
+    overflow: hidden;
+}
+
+.dropdown .dropbtn {
+    font-size: 14px;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: rgb(207, 191, 247);
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    float: none;
+    color: rgb(35, 29, 91);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.topnav a:hover,
+.dropdown:hover .dropbtn {
+    background-color: rgb(235, 152, 152);
+    color: white;
+}
+
+.dropdown-content a:hover {
+    background-color: rgb(255, 150, 150);
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* top menu ends  */
+
+/* miro starts*/
+.miro {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding-top: 56.25%;
+    /* 16:9 Aspect Ratio */
+}
+
+.miro-responsive-iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+/* miro ends */
+
+/* p5js starts*/
+.p5js {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding-top: 56.25%;
+    /* 16:9 Aspect Ratio */
+}
+
+.p5js-responsive-iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+/* p5js ends */
+
+/* embed video starts */
+iframe {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+}
+
+/* embed video ends */
+
+/* audio player starts*/
+audio::-webkit-media-controls-play-button,
+audio::-webkit-media-controls-panel {
+    background-color: coral;
+}
+
+/* audio player ends*/
+
+/* csv table start */
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th,
+td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid rgb(56, 102, 65);
+}
+
+/* csv table ends */
+
+/* 1. header and main-navigation */
+
+header {
+    top: 0;
+    position: top;
+    z-index: 100;
+    width: 100%;
+}
+
+.main__title>*,
+.main__nav {
+    width: auto;
+    color: var(--color-title);
+    padding-top: 150px;
+}
+
+.main__title,
+.main__nav>ul {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: var(--spacing-s) var(--spacing-m);
+}
+
+.main__title>* {
+    font-size: var(--font-size-title);
+}
+
+.main__nav>ul {
+    position: fixed;
+    bottom: 0;
+}
+
+.main__title a,
+.main__nav>ul>li>a {
+    font-size: var(--font-size-title);
+    color: var(--color-nav-link);
+    transition: color 0.5s;
+}
+
+.main__title a:hover {
+    color: var(--color-0);
+}
+
+.main__title a:hover::before {
+    content: '\00a0\2190';
+    margin-right: var(--spacing-s);
+    transition: all 0.5s;
+
+}
+
+.main__nav>ul>li a:hover {
+    color: var(--color-nav-link-hover);
+}
+
+/* 2. weekly */
+
+.weekly>h2 {
+    font-weight: 400;
+    font-size: var(--font-size-m);
+}
+
+.weekly>ul>li {
+    padding: var(--spacing-xs) 0;
+    border-bottom: 1px solid var(--color-5);
+}
+
+.weekly>ul>li:first-child {
+    border-top: 1px solid var(--color-5);
+}
+
+
+.weekly>ul>li>a {
+    color: var(--color-5);
+    transition: color 0.25s;
+    display: block;
+}
+
+.weekly>ul>li>a:hover {
+    color: var(--color-0);
+}
+
+
+/* 3. footer */
+
+footer {
+    min-height: 12rem;
+    text-align: center;
+    padding-top: var(--spacing-m);
+}
+
+/* 4. main layout */
+
+.row {
+    align-items: start;
+}
+
+.row,
+.row>ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: auto;
+    gap: var(--spacing-s);
+}
+
+.column,
+.row>ul>li {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.column__half {
+    display: flex;
+    flex-direction: column;
+    flex: 0 1 50%;
+}
+
+.column__double {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    flex: 2;
+}
+
+
+/* **********************************************************
+ * Main typography
+ * ********************************************************** */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 500;
+    margin-bottom: var(--spacing-m);
+}
+
+a {
+    text-decoration: none;
+    transition: color, text-decoration-color 0.3s;
+}
+
+ul {
+    list-style-type: none;
+}
+
+/* bullet points starts */
+ol,
+li.a {
+    margin: 0;
+    padding: 0;
+}
+
+ol {
+    counter-reset: list;
+    display: table;
+}
+
+li.a {
+    list-style: none;
+    counter-increment: list;
+    display: table-row;
+}
+
+li.a::before {
+    content: '\25C8';
+    display: table-cell;
+    text-align: right;
+    padding-right: 1em;
+}
+
+/* bullet points ends */
+
+/* **********************************************************
+ * Paragraph styling
+ * ********************************************************** */
+
+
+p:not(:last-child) {
+    margin-bottom: var(--spacing-m);
+}
+
+.p__size-l {
+    font-size: var(--font-size-l);
+}
+
+.p__size-m {
+    font-size: var(--font-size-m);
+}
+
+.p__size-s {
+    font-size: var(--font-size-s);
+}
+
+.p__size-xs {
+    font-size: var(--font-size-xs);
+}
+
+.p__width-l {
+    width: 100%;
+}
+
+.p__width-m {
+    width: 60%;
+    min-width: 20rem;
+
+}
+
+.p__width-s {
+    width: 40%;
+    min-width: 15rem;
+}
+
+.p__width-xs {
+    width: 20%;
+    min-width: 10rem;
+}
+
+.caption_font {
+    color: var(--color-12);
+    padding: 10px 0px 20px;
+    width: 100%;
+    line-height: 23px;
+    text-align: left;
+    font-size: var(--font-size-s);
+    caption-side: bottom;
+}
+
+
+/* **********************************************************
+ * special features           
+ * 1. lightbox
+ * ********************************************************** */
+
+.sticky {
+    position: sticky;
+    top: var(--spacing-l);
+}
+
+.video__container {
+    margin: 0px;
+}
+
+
+/* 1. lightbox
+ * click on an image (must implement class="zoom") to go full size 
+ * from: https://code-boxx.com/image-zoom-css-javascript
+ */
+
+#lightbox {
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+
+    display: flex;
+    align-items: center;
+    align-items: center;
+
+    visibility: hidden;
+    opacity: 0;
+
+    transition: opacity ease 0.3s;
+}
+
+#lightbox.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+#lightbox img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.zoom {
+    cursor: pointer;
+}
+
+/* ********************************************************** */
+/* debug, when enabled, useful to see the layout-boxes for    */
+/* sections and divs.                                         */
+/* ********************************************************** */
+
+section {
+    border: 1px solid green;
+}
+
+div,
+ul,
+li {
+    border: 1px solid red;
+}
+
+ul,
+li {
+    border: 1px solid blue;
+}
+
+section,
+div,
+ul,
+li {
+    border: 0;
+}
+
+.outline {
+    border: 1px dotted black;
+}
+
+/* full width youtube video starts*/
+.container {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+}
+
+.video {
+    position: absolute;
+    top: 0;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+}
+
+/* full width youtube video ends*/
